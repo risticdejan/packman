@@ -24,6 +24,8 @@ public class GameEngine extends JFrame {
 
         add(mainPanel);
 
+        mainPanel.requestFocusInWindow();
+
         pack();
     }
 }

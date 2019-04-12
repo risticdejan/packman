@@ -86,8 +86,8 @@ public abstract class Base implements Drawable {
         return img;
     }
 
-    public void setImg(ImageIcon img) {
-        this.img = img;
+    public void setImg(String name) {
+        this.img = new ImageIcon(name);
     }
 
     public boolean isStatus() {
