@@ -67,4 +67,8 @@ public class Stage implements Drawable {
             }
         }
     }
+
+    public Packman getPackman() {
+        return packman;
+    }
 }

@@ -53,6 +53,10 @@ public class MainPanel extends JPanel {
         return keys.contains(key);
     }
 
+    public Stage getStage() {
+        return stage;
+    }
+
     private class MainPanelKeyListener extends KeyAdapter {
 
         private final MainPanel panel;
