@@ -6,7 +6,7 @@ import panels.MainPanel;
 
 public class Ghost extends Base implements Moveable, Runnable {
 
-    protected int JUMP = 7;
+    protected int JUMP = 6;
 
     private int direction = 2;
     private final int speed;

@@ -1,6 +1,7 @@
 package panels;
 
 import contracts.Listener;
+import contracts.NextListener;
 import contracts.PackmanDeadListener;
 import java.awt.Color;
 import java.awt.Graphics;
@@ -47,13 +48,20 @@ public class MainPanel extends JPanel {
         total.setForeground(new java.awt.Color(204, 204, 204));
 
         timer = new Timer(200, (ActionEvent e) -> {
-            if (stage.isPackmanDead()) {
+            if (stage.isEverythingEaten()) {
+                NextListener listener;
+                if ((listener
+                        = (NextListener) listeners.get("nextLevel")) != null) {
+                    listener.nextLevel();
+                }
+            } else if (stage.isPackmanDead()) {
                 PackmanDeadListener listener;
                 if ((listener
                         = (PackmanDeadListener) listeners.get("packmanDead")) != null) {
                     listener.dead();
                 }
             }
+
         });
 
         add(level);
@@ -95,6 +103,10 @@ public class MainPanel extends JPanel {
     }
 
     public void setListener(Listener listener) {
+        if (listener instanceof NextListener) {
+            this.listeners.put("nextLevel", listener);
+        }
+
         if (listener instanceof PackmanDeadListener) {
             this.listeners.put("packmanDead", listener);
         }

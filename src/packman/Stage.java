@@ -1,6 +1,7 @@
 package packman;
 
 import contracts.Drawable;
+import contracts.Eatable;
 import java.awt.Graphics;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -25,7 +26,7 @@ public class Stage implements Drawable {
     public Stage(MainPanel panel) {
         ghosts = new ArrayList<>();
         this.panel = panel;
-        loadStageData("src/resources/data1.txt");
+        loadStageData("src/resources/data" + Store.getLevel() + ".txt");
     }
 
     private void loadStageData(String path) {
@@ -91,6 +92,17 @@ public class Stage implements Drawable {
 
     public boolean isPackmanDead() {
         return packman.isStatus() == false;
+    }
+
+    public boolean isEverythingEaten() {
+        for (Base[] row : mat) {
+            for (Base item : row) {
+                if (item instanceof Eatable && item.isStatus() != false) {
+                    return false;
+                }
+            }
+        }
+        return true;
     }
 
     public Packman getPackman() {
