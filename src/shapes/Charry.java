@@ -20,6 +20,10 @@ public class Charry extends Base implements Eatable {
     public void update(MainPanel panel) {
         Packman packman = panel.getStage().getPackman();
         canItBeEaten(packman, panel);
+
+        for (Ghost ghost : panel.getStage().getGhosts()) {
+            canItBeEaten(ghost, panel);
+        }
     }
 
     @Override

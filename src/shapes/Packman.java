@@ -1,15 +1,28 @@
 package shapes;
 
+import contracts.Eatable;
 import contracts.Moveable;
 import java.awt.event.KeyEvent;
+import javafx.scene.media.AudioClip;
 import panels.MainPanel;
 
-public class Packman extends Base implements Moveable {
+public class Packman extends Base implements Moveable, Eatable {
+
+    private final AudioClip sound;
 
     protected int JUMP = 5;
 
     public Packman(int x, int y) {
         super(x, y, "src/resources/peckmanLeft.gif", 30, 30);
+        this.sound = new AudioClip(Banana.class.getResource("../resources/punch.wav").toString());
+    }
+
+    @Override
+    public void canItBeEaten(Base ghost, MainPanel panel) {
+        if (chackCollision(ghost) && isStatus() == true) {
+            setStatus(false);
+            sound.play();
+        }
     }
 
     @Override

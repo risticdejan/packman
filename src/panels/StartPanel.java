@@ -16,7 +16,7 @@ import java.util.Map;
  */
 public class StartPanel extends javax.swing.JPanel {
 
-    private Map<String, Object> listeners = new HashMap<>();
+    private final Map<String, Object> listeners = new HashMap<>();
 
     /**
      * Creates new form StartPanel
