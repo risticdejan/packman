@@ -1,5 +1,6 @@
 package panels;
 
+import contracts.GameOverListener;
 import contracts.Listener;
 import contracts.NextListener;
 import contracts.PackmanDeadListener;
@@ -48,7 +49,13 @@ public class MainPanel extends JPanel {
         total.setForeground(new java.awt.Color(204, 204, 204));
 
         timer = new Timer(200, (ActionEvent e) -> {
-            if (stage.isEverythingEaten()) {
+            if (stage.isEverythingEaten() && Store.getLevel() == 12) {
+                GameOverListener listener;
+                if ((listener
+                        = (GameOverListener) listeners.get("gameOver")) != null) {
+                    listener.gameOver();
+                }
+            } else if (stage.isEverythingEaten()) {
                 NextListener listener;
                 if ((listener
                         = (NextListener) listeners.get("nextLevel")) != null) {
@@ -109,6 +116,10 @@ public class MainPanel extends JPanel {
 
         if (listener instanceof PackmanDeadListener) {
             this.listeners.put("packmanDead", listener);
+        }
+
+        if (listener instanceof GameOverListener) {
+            this.listeners.put("gameOver", listener);
         }
     }
 

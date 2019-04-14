@@ -1,5 +1,6 @@
 package packman;
 
+import contracts.GameOverListener;
 import contracts.NextListener;
 import contracts.PackmanDeadListener;
 import contracts.StartListener;
@@ -58,6 +59,11 @@ public class GameEngine extends JFrame {
         });
 
         mainPanel.setListener((PackmanDeadListener) () -> {
+            cards.show(this.getContentPane(), "gameOver");
+            mainPanel.stop();
+        });
+
+        mainPanel.setListener((GameOverListener) () -> {
             cards.show(this.getContentPane(), "gameOver");
             mainPanel.stop();
         });
