@@ -57,6 +57,16 @@ public class MainPanel extends JPanel {
         return stage;
     }
 
+    public void setLevelText(int i) {
+        String st = "Level: " + i;
+        this.level.setText(st);
+    }
+
+    public void setTotalText(int i) {
+        String st = "Total: " + i;
+        this.total.setText(st);
+    }
+
     private class MainPanelKeyListener extends KeyAdapter {
 
         private final MainPanel panel;

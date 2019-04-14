@@ -61,23 +61,24 @@ public class StartPanel extends javax.swing.JPanel {
         this.setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(279, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(272, 272, 272))
             .addGroup(layout.createSequentialGroup()
-                .addGap(339, 339, 339)
-                .addComponent(jButton1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(276, 276, 276)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(335, 335, 335)
+                        .addComponent(jButton1)))
+                .addContainerGap(275, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(230, 230, 230)
+                .addGap(300, 300, 300)
                 .addComponent(jLabel1)
                 .addGap(18, 18, 18)
                 .addComponent(jButton1)
-                .addContainerGap(453, Short.MAX_VALUE))
+                .addContainerGap(383, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
