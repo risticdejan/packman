@@ -8,4 +8,6 @@ This is a clone of Packman game.
 -   then choosing a clean and build option
 -   run app
 
+## Look what it looks like
+![alt text](src/resources/banana.png)
 
