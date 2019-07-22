@@ -9,5 +9,5 @@ This is a clone of Packman game.
 -   run app
 
 ## Look what it looks like
-![alt text](src/resources/banana.png)
+![alt text](src/resources/screen.png)
 
